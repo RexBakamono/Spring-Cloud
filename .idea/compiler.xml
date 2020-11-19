@@ -8,7 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Spring-Cloud" />
         <module name="client-server" />
+        <module name="zuul" />
         <module name="eureka-server" />
+        <module name="gateway" />
         <module name="ribbion" />
       </profile>
     </annotationProcessing>
@@ -17,7 +19,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="client-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="ribbion" options="-parameters" />
+      <module name="zuul" options="-parameters" />
     </option>
   </component>
 </project>
