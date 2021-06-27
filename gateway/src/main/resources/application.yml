@@ -1,4 +1,31 @@
-test:
-  uri: lb://eureka-client
-test2:
-  uri: http://localhost:8791/mytest
+server:
+  port: 8899
+
+spring:
+  application:
+    name: gateway-client
+  cloud:
+    gateway:
+      routes:
+        - id: hello-service
+#          uri: http://localhost:8891
+          uri: lb://client-server
+          predicates:
+            - Path=/client/**
+
+
+#          filters:
+#            去除前缀
+#            - PrefixPath=/client
+#            - param=name
+
+    #     对所有路由生效
+#    default-filters:
+#      - AddResponseHeader=X-Response-Foo, Bar
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123456@localhost:8890/eureka/
+  instance:
+    prefer-ip-address: true
